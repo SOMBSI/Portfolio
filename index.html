@@ -8,12 +8,13 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body { font-family: 'Segoe UI', sans-serif; background-color: #f8f9fa; }
-    header { background: linear-gradient(135deg, #2c3e50, #34495e); color: white; padding: 40px; text-align: center; }
+    .page { display: none; padding: 40px; max-width: 900px; margin: auto; }
+    .active-page { display: block; }
+    header { background: linear-gradient(135deg, #2c3e50, #34495e); color: white; padding: 30px; text-align: center; }
     header img { border-radius: 50%; margin-bottom: 20px; }
-    h2 { color: #2c3e50; margin-top: 30px; }
-    .card img { border-radius: 8px; }
+    h2 { color: #2c3e50; margin-bottom: 20px; }
+    .btn-next { margin-top: 20px; }
     footer { background: #2c3e50; color: white; text-align: center; padding: 20px; margin-top: 40px; }
-    nav a { font-weight: 500; }
   </style>
 </head>
 <body>
@@ -24,126 +25,104 @@
   <p>Spécialiste Réseaux, Cloud & Sécurité des Systèmes</p>
 </header>
 
-<!-- Menu de navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Portfolio</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects">Projet de Licence</a></li>
-        <li class="nav-item"><a class="nav-link" href="#diplomes">Diplômes</a></li>
-        <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- À propos -->
-<section id="about" class="container">
+<!-- Page 1 : À propos -->
+<div id="about" class="page active-page">
   <h2>À propos</h2>
-  <p>Diplômé en DUT Génie Réseaux et Télécommunications (Université de Douala, 2022-2024) et Licence Professionnelle en Administration des Réseaux Multimédia (Université de Haute-Alsace, Colmar, 2024-2025). Passionné par la virtualisation, le cloud privé et la sécurité des infrastructures. Mon objectif est de devenir architecte cloud et expert en sécurité des systèmes d’information.</p>
-</section>
+  <p>Je suis Alberto Yvan SOMBSI, passionné par la virtualisation, le cloud privé et la sécurité des infrastructures. 
+  Mon objectif est de concevoir des architectures fiables, automatisées et sécurisées, adaptées aux besoins des entreprises modernes.</p>
+  <button class="btn btn-primary btn-next" onclick="showPage('diplomes')">Suivant → Diplômes</button>
+</div>
 
-<!-- Projet de Licence -->
-<section id="projects" class="container">
-  <h2>Projet de Licence : Mise en place d’une infrastructure cloud privée virtualisée, automatisée et supervisée</h2>
-  <p><strong>Contexte :</strong> Réalisé chez OCTAL GROUP, ce projet répondait au besoin de centraliser et sécuriser les services informatiques de l’entreprise.</p>
-  <p><strong>Objectif :</strong> Concevoir une infrastructure cloud privée sous Proxmox, sécurisée par pfSense, automatisée avec Ansible et supervisée via Grafana/Prometheus.</p>
-  <p><strong>Attentes :</strong> Optimiser les ressources, renforcer la sécurité, automatiser les déploiements et assurer une supervision proactive.</p>
-
-  <!-- Images avec explications -->
-  <div class="card my-3">
-    <div class="card-body">
-      <h5>Architecture du projet</h5>
-      <img src="images/architecture_proxmox.PNG" alt="Architecture Cloud Privé" class="img-fluid">
-      <p>Schéma global de l’infrastructure : Proxmox VE, pfSense, Windows Server, Grafana, Prometheus et VLANs.</p>
-    </div>
-  </div>
-
-  <div class="card my-3">
-    <div class="card-body">
-      <h5>Interface Proxmox</h5>
-      <img src="images/proxmox_dashboard.PNG" alt="Dashboard Proxmox" class="img-fluid">
-      <p>Vue du cluster Proxmox avec les machines virtuelles déployées.</p>
-    </div>
-  </div>
-
-  <div class="card my-3">
-    <div class="card-body">
-      <h5>Sécurité réseau avec pfSense</h5>
-      <img src="images/pfsense_rules.PNG" alt="Pare-feu pfSense" class="img-fluid">
-      <p>Configuration des règles de filtrage VLAN et du NAT pour sécuriser les flux réseau.</p>
-    </div>
-  </div>
-
-  <div class="card my-3">
-    <div class="card-body">
-      <h5>Automatisation avec Ansible</h5>
-      <img src="images/ansible playbook.PNG" alt="Playbook Ansible" class="img-fluid">
-      <p>Exemple de playbook Ansible utilisé pour automatiser le déploiement des services.</p>
-    </div>
-  </div>
-
-  <div class="card my-3">
-    <div class="card-body">
-      <h5>Supervision Grafana / Prometheus</h5>
-      <img src="images/grafana_dashboard.PNG" alt="Dashboard Grafana" class="img-fluid">
-      <p>Tableau de bord Grafana affichant les métriques du cluster et les alertes configurées via Prometheus.</p>
-    </div>
-  </div>
-
-  <div class="card my-3">
-    <div class="card-body">
-      <h5>Gestion des utilisateurs (AD/DHCP)</h5>
-      <img src="images/windows_ser_ad.PNG" alt="Active Directory" class="img-fluid">
-      <p>Configuration Active Directory et DHCP pour centraliser la gestion des utilisateurs et des adresses IP.</p>
-    </div>
-  </div>
-
-  <div class="card my-3">
-    <div class="card-body">
-      <h5>Résultat final</h5>
-      <img src="images/final_result.PNG" alt="Résultat final du projet" class="img-fluid">
-      <p>Infrastructure fonctionnelle : VLANs opérationnels, supervision active et services déployés avec succès.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Diplômes -->
-<section id="diplomes" class="container">
+<!-- Page 2 : Diplômes -->
+<div id="diplomes" class="page">
   <h2>Diplômes</h2>
-  <p><strong>DUT Génie Réseaux et Télécommunications</strong> – Université de Douala (2022-2024)</p>
-  <img src="images/cert_dut.png" alt="DUT Université de Douala" width="400">
+  <p><strong>DUT en Réseaux et Télécommunications</strong><br>IUT de Douala (Cameroun)<br>2022 - 2024</p>
+  <p class="mt-4"><strong>Licence Professionnelle en Administration des Réseaux Multimédia</strong><br>IUT de Colmar (France)<br>2024 - 2025</p>
+  <button class="btn btn-primary btn-next" onclick="showPage('certifications')">Suivant → Certifications</button>
+</div>
 
-  <p class="mt-4"><strong>Licence Professionnelle Administration des Réseaux Multimédia</strong> – Université de Haute-Alsace, Colmar (2024-2025)</p>
-  <img src="images/cert_licence.png" alt="Licence Université de Colmar" width="400">
-</section>
-
-<!-- Certifications -->
-<section id="certifications" class="container">
+<!-- Page 3 : Certifications -->
+<div id="certifications" class="page">
   <h2>Certifications</h2>
   <div class="row">
-    <div class="col-md-3 text-center">
-      <img src="images/introduction cybersecurite.PNG" alt="Cisco Introduction à la cybersécurité" class="img-fluid">
+    <div class="col-md-6 text-center">
+      <img src="images/introduction cybersecurite.PNG" alt="Cisco Introduction à la cybersécurité" class="img-fluid" width="250">
       <p>Cisco – Introduction à la cybersécurité (2025)</p>
     </div>
-    <div class="col-md-3 text-center">
-      <img src="images/reseau de base.PNG" alt="Cisco Notions de base sur les réseaux" class="img-fluid">
+    <div class="col-md-6 text-center">
+      <img src="images/reseau de base.PNG" alt="Cisco Notions de base sur les réseaux" class="img-fluid" width="250">
       <p>Cisco – Notions de base sur les réseaux (2025)</p>
     </div>
-    <div class="col-md-3 text-center">
-      <img src="images/network technician.PNG" alt="Cisco Network Technician Career Path" class="img-fluid">
+    <div class="col-md-6 text-center mt-4">
+      <img src="images/network technician.PNG" alt="Cisco Network Technician Career Path" class="img-fluid" width="250">
       <p>Cisco – Network Technician Career Path (2026)</p>
     </div>
-    <div class="col-md-3 text-center">
-      <img src="images/badge_aws.png" alt="AWS Cloud Computing 101" class="img-fluid">
+    <div class="col-md-6 text-center mt-4">
+      <img src="images/badge_aws.png" alt="AWS Cloud Computing 101" class="img-fluid" width="250">
       <p>AWS – Cloud Computing 101 (2026)</p>
     </div>
   </div>
   <p class="mt-3">Voir tous mes badges sur <a href="https://www.credly.com/users/sombsi-alberto-yvan" target="_blank">Credly</a>.</p>
-</section>
+  <button class="btn btn-primary btn-next" onclick="showPage('projects')">Suivant → Projet de Licence</button>
+</div>
 
-<!-- Contact -->
-<section id="contact" class="container">
+<!-- Page 4 : Projet -->
+<div id="projects" class="page">
+  <h2>Projet de Licence : Mise en place d’une infrastructure cloud privée virtualisée, automatisée et supervisée</h2>
+  <p><strong>Contexte :</strong> Réalisé chez OCTAL GROUP pour centraliser et sécuriser les services informatiques.</p>
+  <p><strong>Objectif :</strong> Déployer un cluster Proxmox, sécuriser avec pfSense, automatiser avec Ansible, superviser avec Grafana/Prometheus.</p>
+  <p><strong>Attentes :</strong> Optimisation des ressources, sécurité renforcée, automatisation des déploiements et supervision proactive.</p>
+
+  <h5>Architecture du projet</h5>
+  <img src="images/architecture_proxmox.PNG" class="img-fluid" width="600">
+  <p>Schéma global de l’infrastructure : Proxmox VE, pfSense, Windows Server, Grafana, Prometheus et VLANs.</p>
+
+  <h5>Interface Proxmox</h5>
+  <img src="images/proxmox_dashboard.PNG" class="img-fluid" width="600">
+  <p>Vue du cluster Proxmox avec les machines virtuelles déployées.</p>
+
+  <h5>Sécurité réseau avec pfSense</h5>
+  <img src="images/pfsense_rules.PNG" class="img-fluid" width="600">
+  <p>Configuration des règles de filtrage VLAN et du NAT pour sécuriser les flux réseau.</p>
+
+  <h5>Automatisation avec Ansible</h5>
+  <img src="images/ansible playbook.PNG" class="img-fluid" width="600">
+  <p>Exemple de playbook Ansible utilisé pour automatiser le déploiement des services.</p>
+
+  <h5>Supervision Grafana / Prometheus</h5>
+  <img src="images/grafana_dashboard.PNG" class="img-fluid" width="600">
+  <p>Tableau de bord Grafana affichant les métriques du cluster et les alertes configurées via Prometheus.</p>
+
+  <h5>Gestion des utilisateurs (AD/DHCP)</h5>
+  <img src="images/windows_ser_ad.PNG" class="img-fluid" width="600">
+  <p>Configuration Active Directory et DHCP pour centraliser la gestion des utilisateurs et des adresses IP.</p>
+
+  <h5>Résultat final</h5>
+  <img src="images/final_result.PNG" class="img-fluid" width="600">
+  <p>Infrastructure fonctionnelle : VLANs opérationnels, supervision active et services déployés avec succès.</p>
+
+  <button class="btn btn-primary btn-next" onclick="showPage('contact')">Suivant → Contact</button>
+</div>
+
+<!-- Page 5 : Contact -->
+<div id="contact" class="page">
+  <h2>Contact</h2>
+  <p>Email : <a href="mailto:albertosombsi@gmail.com">albertosombsi@gmail.com</a></p>
+  <p>GitHub : <a href="https://github.com/SOMBSI" target="_blank">github.com/SOMBSI</a></p>
+  <p>Credly : <a href="https://www.credly.com/users/sombsi-alberto-yvan" target="_blank">Mes badges</a></p>
+</div>
+
+<footer>
+  <p>&copy; 2026 - Portfolio Alberto Yvan SOMBSI</p>
+</footer>
+
+<script>
+  function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(div => div.classList.remove('active-page'));
+    document.getElementById(pageId).classList.add('active-page');
+    window.scrollTo(0,0); // remonter en haut de la page
+  }
+</script>
+
+</body>
+</html>
