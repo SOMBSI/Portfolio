@@ -3,232 +3,303 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOMBSI Alberto Yvan - Portfolio Administration Réseaux & Cloud</title>
+    <title>SOMBSI Alberto Yvan | Portfolio Expert Réseaux & Systèmes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* --- DESIGN SYSTEM REPRENANT LES CODES DES EXPERTS IT --- */
         :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #0dcaf0;
-            --dark-color: #1e293b;
-            --light-bg: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #334155;
-            --text-muted: #64748b;
-            --border-radius: 12px;
-            --transition: all 0.3s ease;
+            --bg-main: #0b0f19;
+            --bg-card: #131c2e;
+            --bg-card-hover: #1b263f;
+            --primary: #00d2ff;     /* Bleu Électrique Cloud / SysAdmin */
+            --secondary: #00f2fe;   /* Cyan Réseau */
+            --accent: #10b981;      /* Vert de Statut Opérationnel */
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--light-bg);
+            background-color: var(--bg-main);
             color: var(--text-main);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* Header / Navigation */
+        /* --- NAVIGATION --- */
         header {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 1rem 2rem;
-            position: sticky;
+            position: fixed;
             top: 0;
+            width: 100%;
+            background-color: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
             z-index: 1000;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid var(--border);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1.2rem 2rem;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--secondary-color);
+            font-family: 'Fira Code', monospace;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
         }
 
-        nav ul {
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-menu {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.8rem;
         }
 
-        nav a:hover {
-            color: var(--secondary-color);
+        .nav-menu a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
             transition: var(--transition);
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            padding: 5rem 2rem;
-            text-align: center;
+        .nav-menu a:hover {
+            color: var(--primary);
         }
 
-        .hero-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .profile-img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--secondary-color);
-            margin-bottom: 1.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.5px;
-        }
-
-        .hero h2 {
-            font-size: 1.3rem;
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .contact-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-group {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #0b5ed7;
-        }
-
-        .btn-dark {
-            background-color: #334155;
-            color: white;
-            border: 1px solid #475569;
-        }
-
-        .btn-dark:hover {
-            background-color: #475569;
-        }
-
-        /* Main Content Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
+        /* --- DISPOSITION GLOBALE DES SECTIONS --- */
         section {
-            margin-bottom: 5rem;
+            padding: 110px 2rem 60px 2rem;
+            max-width: 1240px;
+            margin: 0 auto;
         }
 
         .section-title {
-            font-size: 2rem;
-            color: var(--dark-color);
-            margin-bottom: 2.5rem;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 3.5rem;
             text-align: center;
             position: relative;
-            padding-bottom: 0.5rem;
         }
 
         .section-title::after {
             content: '';
+            display: block;
             width: 60px;
             height: 4px;
-            background-color: var(--primary-color);
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            margin: 12px auto 0 auto;
             border-radius: 2px;
         }
 
-        /* Academic Logos Block */
-        .academic-logos {
+        /* --- SECTION 1 : À PROPOS (HERO) --- */
+        #a-propos {
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: space-between;
             gap: 4rem;
-            margin-bottom: 3rem;
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            min-height: 85vh;
+            padding-top: 150px;
         }
 
-        .academic-logos img {
-            height: 65px;
-            object-fit: contain;
-            filter: grayscale(20%);
+        .hero-text {
+            flex: 1.2;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
             transition: var(--transition);
         }
 
-        .academic-logos img:hover {
-            filter: grayscale(0%);
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #000;
         }
 
-        /* Project Section Styling */
-        .project-meta {
-            background-color: var(--dark-color);
-            color: white;
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--text-muted);
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-container {
+            width: 280px;
+            height: 280px;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 3px solid var(--border);
+            transition: var(--transition);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .profile-container:hover {
+            border-color: var(--primary);
+            transform: scale(1.02);
+        }
+
+        .profile-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- SECTION 2 : DIPLÔMES --- */
+        .diploma-list {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .diploma-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
             padding: 2rem;
-            border-radius: var(--border-radius);
-            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            transition: var(--transition);
         }
 
-        .project-meta h3 {
-            color: var(--secondary-color);
+        .diploma-card:hover {
+            border-color: var(--primary);
+            background-color: var(--bg-card-hover);
+            transform: translateX(10px);
+        }
+
+        .school-logo-frame {
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .school-logo-frame img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .diploma-info h3 {
+            font-size: 1.3rem;
+            color: var(--text-main);
+            margin-bottom: 0.4rem;
+        }
+
+        .diploma-info .school-name {
+            font-size: 1.05rem;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+        }
+
+        .diploma-info .year {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* --- SECTION 3 : PROJETS (SOUTENANCE ET ADDITIONS FUTURES) --- */
+        .project-intro {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        .project-intro h3 {
+            font-size: 1.4rem;
             margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .project-intro p {
+            color: var(--text-muted);
+            font-size: 1rem;
         }
 
         .project-grid {
@@ -238,383 +309,671 @@
         }
 
         .project-card {
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            border: 1px solid #e2e8f0;
             display: flex;
             flex-direction: column;
-        }
-
-        .project-img-container {
-            width: 100%;
-            height: 220px;
-            background-color: #f1f5f9;
-            overflow: hidden;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .project-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 0.5rem;
             transition: var(--transition);
         }
 
-        .project-card:hover .project-img-container img {
-            transform: scale(1.03);
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
         }
 
-        .project-body {
+        .project-image-box {
+            width: 100%;
+            height: 210px;
+            background-color: #0f172a;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-image-box img {
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-image-box img {
+            transform: scale(1.04);
+        }
+
+        .project-content {
             padding: 1.5rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
 
-        .project-body h4 {
-            font-size: 1.2rem;
-            color: var(--dark-color);
-            margin-bottom: 0.75rem;
+        .project-content h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-main);
         }
 
-        .project-body p {
+        .project-content p {
             font-size: 0.95rem;
             color: var(--text-muted);
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             flex-grow: 1;
+            text-align: justify;
         }
 
-        .tech-tags {
+        .tech-pill-container {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
         }
 
-        .tag {
-            background-color: #f1f5f9;
-            color: #475569;
-            padding: 0.25rem 0.75rem;
+        .tech-pill {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            background-color: rgba(0, 210, 255, 0.08);
+            color: var(--primary);
+            padding: 0.25rem 0.6rem;
             border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 500;
+            border: 1px solid rgba(0, 210, 255, 0.15);
         }
 
-        /* Certifications Section */
+        /* --- SECTION 4 : CERTIFICATIONS --- */
         .cert-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 2rem;
         }
 
         .cert-card {
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 1.5rem;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.8rem;
             text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            transition: var(--transition);
         }
 
-        .cert-img-container {
+        .cert-card:hover {
+            border-color: var(--secondary);
+            transform: scale(1.03);
+        }
+
+        .cert-img-wrapper {
             width: 100%;
-            height: 160px;
+            height: 140px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
 
-        .cert-img-container img {
+        .cert-img-wrapper img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
         }
 
         .cert-card h4 {
-            font-size: 1.1rem;
-            color: var(--dark-color);
-            margin-top: 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 600;
         }
 
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: #94a3b8;
-            text-align: center;
-            padding: 3rem 2rem;
-            margin-top: 5rem;
-            border-top: 1px solid #334155;
+        /* --- SECTION 5 : COMPÉTENCES --- */
+        .skills-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
         }
 
-        footer p {
-            margin-bottom: 1rem;
+        .skills-block {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 12px;
         }
 
-        .footer-socials {
+        .skills-block h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 1.8rem;
             display: flex;
-            justify-content: center;
-            gap: 1.5rem;
+            align-items: center;
+            gap: 0.6rem;
         }
 
-        .footer-socials a:hover {
-            color: white;
+        .bar-item {
+            margin-bottom: 1.3rem;
+        }
+
+        .bar-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 6px;
+            background-color: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            width: 0;
+            border-radius: 3px;
+            transition: width 1.5s cubic-bezier(0.1, 0.8, 0.2, 1);
+        }
+
+        /* --- SECTION 6 : LANGUES & LOISIRS --- */
+        .split-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .sub-block {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .sub-block h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .lang-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .lang-row:last-child {
+            border-bottom: none;
+        }
+
+        .lang-badge {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 4px;
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--accent);
+        }
+
+        .hobby-flex {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .hobby-item {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            background-color: rgba(255,255,255,0.01);
+            border: 1px solid transparent;
             transition: var(--transition);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
+        .hobby-item:hover {
+            border-color: var(--border);
+            background-color: rgba(255,255,255,0.02);
+        }
+
+        .hobby-item i {
+            font-size: 1.6rem;
+            color: var(--secondary);
+            width: 35px;
+            text-align: center;
+        }
+
+        .hobby-item span {
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        /* --- SECTION 7 : CONTACT --- */
+        .contact-card-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .contact-card-box p {
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .social-btn {
+            background-color: #0f172a;
+            border: 1px solid var(--border);
+            padding: 1.5rem 1rem;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .social-btn i {
+            font-size: 2.2rem;
+        }
+
+        .social-btn.mail i { color: #ef4444; }
+        .social-btn.credly i { color: #ff6b00; }
+        .social-btn.github i { color: #fff; }
+
+        .social-btn:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .social-btn span {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            margin-top: 5rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* --- ACCESSIBILITÉ / RESPONSIVE --- */
+        @media (max-width: 968px) {
+            #a-propos {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 110px;
+                gap: 2.5rem;
             }
-            .academic-logos {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero-description { text-align: center; }
+            .btn-group { justify-content: center; }
+            .split-container { grid-template-columns: 1fr; }
+            .nav-menu { display: none; } /* Version simplifiée pour mobile */
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
     <header>
-        <div class="nav-container">
-            <div class="logo">SOMBSI ALBERTO</div>
-            <nav>
-                <ul>
-                    <li><a href="#accueil">Accueil</a></li>
-                    <li><a href="#projet">Projet de Soutenance</a></li>
-                    <li><a href="#certifications">Certifications</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav class="nav-container">
+            <div class="logo">SOMBSI.<span>Tech</span></div>
+            <ul class="nav-menu">
+                <li><a href="#a-propos">À Propos</a></li>
+                <li><a href="#diplomes">Diplômes</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#langues-loisirs">Langues & Loisirs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Hero Identity Section -->
-    <section class="hero" id="accueil">
-        <div class="hero-container">
-            <img src="images/ma photo.PNG" alt="SOMBSI Alberto Yvan" class="profile-img">
-            <h1>Alberto Yvan Sombsi</h1>
-            <h2>Administrateur Systèmes, Réseaux & Infrastructure Cloud Privée</h2>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i> <a href="mailto:albertosombsi@gmail.com">albertosombsi@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-github"></i> <span>SOMBSI</span>
-                </div>
-            </div>
-
+    <section id="a-propos">
+        <div class="hero-text">
+            <h1>Alberto Yvan <span>Sombsi</span></h1>
+            <div class="hero-subtitle">Junior Network & Systems Administrator</div>
+            <p class="hero-description">
+                Administrateur systèmes et réseaux diplômé, spécialisé dans l’architecture, la sécurité opérationnelle et le déploiement d’infrastructures virtualisées. Fort d'une expertise pratique acquise lors de projets d'envergure, je maîtrise la conception d'environnements cloud privés résilients sous hyperviseurs, l'automatisation de serveurs clés, ainsi que la mise en œuvre de systèmes de surveillance avancés et proactifs.
+            </p>
             <div class="btn-group">
-                <a href="https://www.credly.com/users/sombsi/alberto-yvan" target="_blank" class="btn btn-primary">
-                    <i class="fas fa-award"></i> Profil Credly
-                </a>
-                <a href="https://github.com/SOMBSI" target="_blank" class="btn btn-dark">
-                    <i class="fab fa-github"></i> GitHub Code
-                </a>
+                <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Me contacter</a>
+                <a href="#projets" class="btn btn-secondary"><i class="fa-solid fa-code"></i> Découvrir mes projets</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="profile-container">
+                <img src="images/ma photo.PNG" alt="Alberto Yvan SOMBSI">
             </div>
         </div>
     </section>
 
-    <!-- Main Content Container -->
-    <div class="container">
+    <section id="diplomes">
+        <h2 class="section-title">Cursus Scolaire & Diplômes</h2>
+        <div class="diploma-list">
+            
+            <div class="diploma-card">
+                <div class="school-logo-frame">
+                    <img src="images/colmar logo.png" alt="IUT de Colmar">
+                </div>
+                <div class="diploma-info">
+                    <h3>Licence Professionnelle en Administration des Réseaux Multimédia</h3>
+                    <div class="school-name">IUT de Colmar, Université de Haute-Alsace (France)</div>
+                    <div class="year"><i class="fa-solid fa-calendar-days"></i> Diplômé en Novembre 2025</div>
+                </div>
+            </div>
 
-        <!-- Institutions Partenaires Logos -->
-        <div class="academic-logos">
-            <img src="images/iut logo.png" alt="IUT de Douala">
-            <img src="images/colmar logo.png" alt="IUT de Colmar, Université de Haute-Alsace">
+            <div class="diploma-card">
+                <div class="school-logo-frame">
+                    <img src="images/iut logo.png" alt="IUT de Douala">
+                </div>
+                <div class="diploma-info">
+                    <h3>DUT en Réseaux et Télécommunications</h3>
+                    <div class="school-name">IUT de Douala, Université de Douala (Cameroun)</div>
+                    <div class="year"><i class="fa-solid fa-calendar-days"></i> Promotion 2022 - 2024</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="projets">
+        <h2 class="section-title">Projets Réalisés</h2>
+        
+        <div class="project-intro">
+            <h3><i class="fa-solid fa-box-open"></i> Dossier de Soutenance de Fin de Cycle</h3>
+            <p>
+                <strong>Thème :</strong> Mise en place d’une infrastructure cloud privée virtualisée, automatisée et supervisée sous Proxmox pour une gestion centralisée et sécurisée des services d'entreprise. <br>
+                <em>Projet d'ingénierie système mené au sein de l'unité sécurité réseau et cloud de l'organisme d'accueil <strong>OCTAL GROUP</strong>.</em>
+            </p>
         </div>
 
-        <!-- Project Definition and Technical Report Section -->
-        <section id="projet">
-            <h2 class="section-title">Projet de Fin de Cycle / Stage de Soutenance</h2>
+        <div class="project-grid">
             
-            <div class="project-meta">
-                <h3>Thème : Mise en place d’une infrastructure cloud privée virtualisée, automatisée et supervisée sous Proxmox pour une gestion centralisée et sécurisée des services</h3>
-                <p><strong>Organisme d'accueil :</strong> OCTAL GROUP (Unité sécurité réseau et cloud)</p>
-                <p><strong>Contexte & Problématique :</strong> Modernisation d'une infrastructure physique classique vers un environnement virtualisé agile. Solution apportée via la segmentation réseau sécurisée (VLANs/pfSense), l'automatisation rigoureuse des déploiements applicatifs (Ansible Infrastructure as Code), la centralisation des identités (Active Directory) et la mise en œuvre d'une supervision temps réel proactive (Prometheus/Grafana).</p>
+            <div class="project-card">
+                <div class="project-image-box">
+                    <img src="images/architecture_proxmox.PNG" alt="Architecture Globale">
+                </div>
+                <div class="project-content">
+                    <h4>Topologie Globale du Cloud Privé</h4>
+                    <p>Conception architecturale complète d'une infrastructure virtualisée segmentée en VLANs de production via l'hyperviseur pour isoler hermétiquement les flux métiers.</p>
+                    <div class="tech-pill-container">
+                        <span class="tech-pill">Proxmox VE</span>
+                        <span class="tech-pill">VLAN</span>
+                        <span class="tech-pill">Design IT</span>
+                    </div>
+                </div>
             </div>
 
-            <h3 style="margin-bottom: 1.5rem; color: var(--dark-color);"><i class="fas fa-cubes"></i> Architecture et Réalisations Techniques</h3>
+            <div class="project-card">
+                <div class="project-image-box">
+                    <img src="images/proxmox_dashboard.PNG" alt="Proxmox Node Dashboard">
+                </div>
+                <div class="project-content">
+                    <h4>Administration Hyperviseur de Calcul</h4>
+                    <p>Déploiement des nœuds, allocation dynamique de ressources matérielles (CPU, RAM vCore) et gestion fine du stockage réseau partagé NFS.</p>
+                    <div class="tech-pill-container">
+                        <span class="tech-pill">Proxmox Cluster</span>
+                        <span class="tech-pill">KVM</span>
+                        <span class="tech-pill">NFS Shared</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image-box">
+                    <img src="images/pfsense_rules.PNG" alt="pfSense Traffic Rules">
+                </div>
+                <div class="project-content">
+                    <h4>Filtrage & Routage Périmétrique</h4>
+                    <p>Configuration des passerelles logiques pfSense, écriture des politiques de sécurité strictes d'inter-filtrage et mise en place de translation d’adresses NAT.</p>
+                    <div class="tech-pill-container">
+                        <span class="tech-pill">pfSense</span>
+                        <span class="tech-pill">Firewall</span>
+                        <span class="tech-pill">DMZ Security</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image-box">
+                    <img src="images/windows_ser_ad.PNG" alt="Active Directory Identity Services">
+                </div>
+                <div class="project-content">
+                    <h4>Gestion d'Annuaire Centralisée</h4>
+                    <p>Intégration de Windows Server pour le contrôle d'accès. Configuration Active Directory DS, serveur DNS d'autorité et DHCP Relay multi-étendues.</p>
+                    <div class="tech-pill-container">
+                        <span class="tech-pill">Windows Server</span>
+                        <span class="tech-pill">AD DS</span>
+                        <span class="tech-pill">DNS / DHCP</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image-box">
+                    <img src="images/ansible playbook.PNG" alt="Ansible Devops Execution">
+                </div>
+                <div class="project-content">
+                    <h4>Infrastructure as Code (IaC)</h4>
+                    <p>Écriture de Playbooks Ansible industriels pour configurer automatiquement les micro-services (Serveurs Web Apache, authentification LDAP et Mail Postfix).</p>
+                    <div class="tech-pill-container">
+                        <span class="tech-pill">Ansible Automation</span>
+                        <span class="tech-pill">YAML</span>
+                        <span class="tech-pill">Linux Shell</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image-box">
+                    <img src="images/grafana_dashboard.PNG" alt="Grafana Performance Metrics">
+                </div>
+                <div class="project-content">
+                    <h4>Métrologie et Observabilité</h4>
+                    <p>Configuration de sondes Prometheus couplées à des tableaux de bord Grafana pour la surveillance préventive et en temps réel de l’état des nœuds.</p>
+                    <div class="tech-pill-container">
+                        <span class="tech-pill">Prometheus</span>
+                        <span class="tech-pill">Grafana Metrics</span>
+                        <span class="tech-pill">Supervision</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image-box">
+                    <img src="images/final_result.PNG" alt="Infrastructure Validation Check">
+                </div>
+                <div class="project-content">
+                    <h4>Recette Technique & Validation</h4>
+                    <p>Tests de résilience aux pannes, audit de connectivité inter-VLAN sécurisée et vérification fonctionnelle nominale de l'ensemble de l'écosystème cloud.</p>
+                    <div class="tech-pill-container">
+                        <span class="tech-pill">SysQA</span>
+                        <span class="tech-pill">Audit de flux</span>
+                        <span class="tech-pill">Prod Ready</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2 class="section-title">Certifications & Badges Obtenus</h2>
+        <div class="cert-grid">
             
-            <div class="project-grid">
+            <div class="cert-card">
+                <div class="cert-img-wrapper">
+                    <img src="images/badge_aws.png" alt="AWS Cloud Computing 101 Badge">
+                </div>
+                <h4>AWS Cloud Computing 101</h4>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-img-wrapper">
+                    <img src="images/network technician.PNG" alt="Cisco Network Technician Badge">
+                </div>
+                <h4>Network Technician</h4>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-img-wrapper">
+                    <img src="images/reseau de base.PNG" alt="Cisco Réseau de Base">
+                </div>
+                <h4>Réseaux de Base</h4>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-img-wrapper">
+                    <img src="images/introduction cybersecurite.PNG" alt="Cisco Introduction Cybersécurité">
+                </div>
+                <h4>Introduction à la Cybersécurité</h4>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="competences">
+        <h2 class="section-title">Expertise Technique</h2>
+        <div class="skills-layout">
+            
+            <div class="skills-block">
+                <h3><i class="fa-solid fa-network-wired"></i> Ingénierie Réseaux & Sécurité</h3>
+                <div class="bar-item">
+                    <div class="bar-labels"><span>Routage Cisco IOS & Protocoles</span><span>85%</span></div>
+                    <div class="progress-track"><div class="progress-fill" data-progress="85%"></div></div>
+                </div>
+                <div class="bar-item">
+                    <div class="bar-labels"><span>Firewalling & Filtrage (pfSense, FortiGate)</span><span>80%</span></div>
+                    <div class="progress-track"><div class="progress-fill" data-progress="80%"></div></div>
+                </div>
+                <div class="bar-item">
+                    <div class="bar-labels"><span>Architecture LAN / VLAN / Trunking</span><span>85%</span></div>
+                    <div class="progress-track"><div class="progress-fill" data-progress="85%"></div></div>
+                </div>
+            </div>
+
+            <div class="skills-block">
+                <h3><i class="fa-solid fa-server"></i> Systèmes, Virtualisation & DevOps</h3>
+                <div class="bar-item">
+                    <div class="bar-labels"><span>Hyperviseurs (Proxmox VE, VMware)</span><span>85%</span></div>
+                    <div class="progress-track"><div class="progress-fill" data-progress="85%"></div></div>
+                </div>
+                <div class="bar-item">
+                    <div class="bar-labels"><span>Infrastructure as Code & Automatisation (Ansible)</span><span>75%</span></div>
+                    <div class="progress-track"><div class="progress-fill" data-progress="75%"></div></div>
+                </div>
+                <div class="bar-item">
+                    <div class="bar-labels"><span>Windows Server (Active Directory, DNS, GPO)</span><span>80%</span></div>
+                    <div class="progress-track"><div class="progress-fill" data-progress="80%"></div></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="langues-loisirs">
+        <h2 class="section-title">Langues & Intérêts</h2>
+        <div class="split-container">
+            
+            <div class="sub-block">
+                <h3><i class="fa-solid fa-language"></i> Compétences Linguistiques</h3>
+                <div class="lang-row">
+                    <span>Français</span>
+                    <span class="lang-badge">Courant / Maternelle</span>
+                </div>
+                <div class="lang-row">
+                    <span>Anglais</span>
+                    <span class="lang-badge" style="background-color:rgba(56,189,248,0.1); color:var(--primary);">Débutant</span>
+                </div>
+            </div>
+
+            <div class="sub-block">
+                <h3><i class="fa-solid fa-bolt"></i> Centres d'Intérêt</h3>
+                <div class="hobby-flex">
+                    <div class="hobby-item">
+                        <i class="fa-solid fa-plane-departure"></i>
+                        <span>Voyages et découvertes de cultures</span>
+                    </div>
+                    <div class="hobby-item">
+                        <i class="fa-solid fa-flag-checkered"></i>
+                        <span>Formule 1 (Analyses de stratégies et ingénierie mécanique)</span>
+                    </div>
+                    <div class="hobby-item">
+                        <i class="fa-solid fa-headphones-simple"></i>
+                        <span>Écoute musicale de haute fidélité</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Canaux de Communication</h2>
+        <div class="contact-card-box">
+            <p>N'hésitez pas à auditer mon code source ou à analyser mes accréditations professionnelles certifiées via les plateformes officielles ci-dessous :</p>
+            <div class="link-grid">
                 
-                <!-- Card 1: Topologie Générale -->
-                <div class="project-card">
-                    <div class="project-img-container">
-                        <img src="images/architecture_proxmox.PNG" alt="Architecture Globale du Projet">
-                    </div>
-                    <div class="project-body">
-                        <h4>Architecture Globale & Topologie</h4>
-                        <p>Modélisation complète de l'infrastructure cloud hébergée sur l'hyperviseur Proxmox, intégrant le cœur de routage/filtrage pfSense et l'ensemble des segments de production isolés par VLANs.</p>
-                        <div class="tech-tags">
-                            <span class="tag">Proxmox VE</span>
-                            <span class="tag">VLAN</span>
-                            <span class="tag">pfSense</span>
-                        </div>
-                    </div>
-                </div>
+                <a href="mailto:albertosombsi@gmail.com" class="social-btn mail">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Email</span>
+                </a>
 
-                <!-- Card 2: Hyperviseur Proxmox -->
-                <div class="project-card">
-                    <div class="project-img-container">
-                        <img src="images/proxmox_dashboard.PNG" alt="Dashboard Proxmox VE">
-                    </div>
-                    <div class="project-body">
-                        <h4>Gestion du Cluster Proxmox VE</h4>
-                        <p>Console d'administration centrale regroupant les machines virtuelles (VM) et les allocations de ressources matérielles (CPU, RAM, Stockage NFS partagé) pour les différents environnements serveurs.</p>
-                        <div class="tech-tags">
-                            <span class="tag">Hyperviseur</span>
-                            <span class="tag">KVM</span>
-                            <span class="tag">NFS Storage</span>
-                        </div>
-                    </div>
-                </div>
+                <a href="https://www.credly.com/users/sombsi/alberto-yvan" target="_blank" class="social-btn credly">
+                    <i class="fa-solid fa-award"></i>
+                    <span>Credly</span>
+                </a>
 
-                <!-- Card 3: Sécurité pfSense -->
-                <div class="project-card">
-                    <div class="project-img-container">
-                        <img src="images/pfsense_rules.PNG" alt="Règles de filtrage pfSense">
-                    </div>
-                    <div class="project-body">
-                        <h4>Sécurisation & Politiques de Filtrage</h4>
-                        <p>Configuration fine des pare-feux applicatifs sur pfSense. Isolation et routage inter-VLAN (IT, Users, et Services) avec règles strictes de contrôle de flux et translation NAT pour l'accès WAN extérieur.</p>
-                        <div class="tech-tags">
-                            <span class="tag">pfSense</span>
-                            <span class="tag">Firewall Rules</span>
-                            <span class="tag">NAT</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4: Active Directory -->
-                <div class="project-card">
-                    <div class="project-img-container">
-                        <img src="images/windows_ser_ad.PNG" alt="Windows Server Active Directory">
-                    </div>
-                    <div class="project-body">
-                        <h4>Services d'Annuaire & Réseau Microsoft</h4>
-                        <p>Déploiement centralisé de Windows Server gérant les rôles Active Directory (AD DS), DNS interne et l'attribution dynamique d'adresses réseau via DHCP Relay.</p>
-                        <div class="tech-tags">
-                            <span class="tag">Active Directory</span>
-                            <span class="tag">DHCP Relay</span>
-                            <span class="tag">DNS</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 5: Automatisation Ansible -->
-                <div class="project-card">
-                    <div class="project-img-container">
-                        <img src="images/ansible playbook.PNG" alt="Automatisation Ansible">
-                    </div>
-                    <div class="project-body">
-                        <h4>Infrastructure as Code (IaC)</h4>
-                        <p>Automatisation complète du déploiement des services applicatifs (serveur Web Apache/PHP, serveur de messagerie Postfix/Dovecot relié à l'AD via LDAP, et partages NFS) via des Playbooks YAML.</p>
-                        <div class="tech-tags">
-                            <span class="tag">Ansible</span>
-                            <span class="tag">YAML</span>
-                            <span class="tag">Automation</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 6: Supervision Métriques -->
-                <div class="project-card">
-                    <div class="project-img-container">
-                        <img src="images/grafana_dashboard.PNG" alt="Supervision Grafana Dashboard">
-                    </div>
-                    <div class="project-body">
-                        <h4>Supervision Métriques Avancée</h4>
-                        <p>Collecte d'indicateurs de performance en temps réel à l'aide de Prometheus et affichage dynamique des tableaux de bord Grafana pour la gestion prédictive des incidents (seuils de charge CPU, RAM, disques).</p>
-                        <div class="tech-tags">
-                            <span class="tag">Prometheus</span>
-                            <span class="tag">Grafana</span>
-                            <span class="tag">Monitoring</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 7: Validation finale -->
-                <div class="project-card">
-                    <div class="project-img-container">
-                        <img src="images/final_result.PNG" alt="Résultat final">
-                    </div>
-                    <div class="project-body">
-                        <h4>Tests d'Intégration & Résultat Final</h4>
-                        <p>Validation opérationnelle de l'ensemble des modules du Cloud privé : tests de connectivité inter-VLAN réussis, routage internet sécurisé et disponibilité applicative globale.</p>
-                        <div class="tech-tags">
-                            <span class="tag">Vérification</span>
-                            <span class="tag">Routage IP</span>
-                            <span class="tag">Production</span>
-                        </div>
-                    </div>
-                </div>
+                <a href="https://github.com/SOMBSI" target="_blank" class="social-btn github">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub</span>
+                </a>
 
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Academic Credentials and Professional Badges Section -->
-        <section id="certifications">
-            <h2 class="section-title">Certifications & Badges Professionnels</h2>
-            <div class="cert-grid">
-                
-                <!-- Badge AWS -->
-                <div class="cert-card">
-                    <div class="cert-img-container">
-                        <img src="images/badge_aws.png" alt="Badge AWS Cloud Computing 101">
-                    </div>
-                    <h4>AWS Cloud Computing 101</h4>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;">Amazon Web Services</p>
-                </div>
-
-                <!-- Cybersecurite -->
-                <div class="cert-card">
-                    <div class="cert-img-container">
-                        <img src="images/introduction cybersecurite.PNG" alt="Introduction à la Cybersécurité">
-                    </div>
-                    <h4>Introduction à la Cybersécurité</h4>
-                </div>
-
-                <!-- Reseau de base -->
-                <div class="cert-card">
-                    <div class="cert-img-container">
-                        <img src="images/reseau de base.PNG" alt="Réseaux de Base">
-                    </div>
-                    <h4>Réseaux de Base</h4>
-                </div>
-
-                <!-- Network Technician -->
-                <div class="cert-card">
-                    <div class="cert-img-container">
-                        <img src="images/network technician.PNG" alt="Network Technician">
-                    </div>
-                    <h4>Network Technician</h4>
-                </div>
-
-            </div>
-        </section>
-
-    </div>
-
-    <!-- Footer Content -->
     <footer>
-        <p>&copy; 2026 Alberto Yvan Sombsi. Tous droits réservés.</p>
-        <p style="font-size: 0.85rem; color: #64748b;">Dossier d'actifs configuré : <code>images/ .gitkeep</code></p>
-        <div class="footer-socials">
-            <a href="https://github.com/SOMBSI" target="_blank" title="GitHub"><i class="fab fa-github fa-lg"></i></a>
-            <a href="https://www.credly.com/users/sombsi/alberto-yvan" target="_blank" title="Credly"><i class="fas fa-award fa-lg"></i></a>
-        </div>
+        <p>&copy; 2026 Alberto Yvan Sombsi | Portfolio Technologique d'Expert.</p>
+        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.2);">Répertoire d'images configuré sur la racine locale : <code>images/</code></p>
     </footer>
 
+    <script>
+        const bars = document.querySelectorAll('.progress-fill');
+        const section = document.getElementById('competences');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    bars.forEach(bar => {
+                        bar.style.width = bar.getAttribute('data-progress');
+                    });
+                } else {
+                    bars.forEach(bar => { bar.style.width = '0'; });
+                }
+            });
+        }, { threshold: 0.15 });
+
+        observer.observe(section);
+    </script>
 </body>
 </html>
