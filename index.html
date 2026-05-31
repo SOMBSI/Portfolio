@@ -3,126 +3,127 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Alberto Yvan SOMBSI</title>
+  <title>Portfolio - Alberto Sombsi</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body { font-family: 'Segoe UI', sans-serif; background-color: #f8f9fa; }
-    .page { display: none; padding: 40px; max-width: 900px; margin: auto; }
-    .active-page { display: block; }
-    header { background: linear-gradient(135deg, #2c3e50, #34495e); color: white; padding: 30px; text-align: center; }
-    header img { border-radius: 50%; margin-bottom: 20px; }
-    h2 { color: #2c3e50; margin-bottom: 20px; }
-    .btn-next { margin-top: 20px; }
-    footer { background: #2c3e50; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+    body { font-family: 'Segoe UI', sans-serif; background: #0f2027; background: linear-gradient(to right, #2c5364, #203a43, #0f2027); color: #f8f9fa; }
+    header { padding: 40px; text-align: center; }
+    h2 { color: #00d9ff; margin-bottom: 20px; }
+    .section { padding: 60px 20px; }
+    .logo { max-height: 80px; margin: 20px; }
+    .btn-cv { background-color: #00d9ff; color: #000; font-weight: bold; border: none; padding: 12px 24px; border-radius: 30px; transition: transform 0.3s ease; }
+    .btn-cv:hover { transform: scale(1.1); background-color: #00a6c7; }
+    footer { background: #111; color: #aaa; text-align: center; padding: 20px; margin-top: 40px; }
+    nav.navbar { background-color: #111; }
+    nav a { color: #f8f9fa !important; font-weight: 500; }
+    .card { background-color: #1c1c1c; border: none; margin-bottom: 30px; }
+    .card img { border-radius: 8px; }
   </style>
 </head>
 <body>
 
-<header>
-  <img src="images/ma photo.PNG" alt="Photo Alberto Yvan SOMBSI" width="150">
-  <h1>Alberto Yvan SOMBSI</h1>
-  <p>Spécialiste Réseaux, Cloud & Sécurité des Systèmes</p>
-</header>
-
-<!-- Page 1 : À propos -->
-<div id="about" class="page active-page">
-  <h2>À propos</h2>
-  <p>Je suis Alberto Yvan SOMBSI, passionné par la virtualisation, le cloud privé et la sécurité des infrastructures. 
-  Mon objectif est de concevoir des architectures fiables, automatisées et sécurisées, adaptées aux besoins des entreprises modernes.</p>
-  <button class="btn btn-primary btn-next" onclick="showPage('diplomes')">Suivant → Diplômes</button>
-</div>
-
-<!-- Page 2 : Diplômes -->
-<div id="diplomes" class="page">
-  <h2>Diplômes</h2>
-  <p><strong>DUT en Réseaux et Télécommunications</strong><br>IUT de Douala (Cameroun)<br>2022 - 2024</p>
-  <p class="mt-4"><strong>Licence Professionnelle en Administration des Réseaux Multimédia</strong><br>IUT de Colmar (France)<br>2024 - 2025</p>
-  <button class="btn btn-primary btn-next" onclick="showPage('certifications')">Suivant → Certifications</button>
-</div>
-
-<!-- Page 3 : Certifications -->
-<div id="certifications" class="page">
-  <h2>Certifications</h2>
-  <div class="row">
-    <div class="col-md-6 text-center">
-      <img src="images/introduction cybersecurite.PNG" alt="Cisco Introduction à la cybersécurité" class="img-fluid" width="250">
-      <p>Cisco – Introduction à la cybersécurité (2025)</p>
-    </div>
-    <div class="col-md-6 text-center">
-      <img src="images/reseau de base.PNG" alt="Cisco Notions de base sur les réseaux" class="img-fluid" width="250">
-      <p>Cisco – Notions de base sur les réseaux (2025)</p>
-    </div>
-    <div class="col-md-6 text-center mt-4">
-      <img src="images/network technician.PNG" alt="Cisco Network Technician Career Path" class="img-fluid" width="250">
-      <p>Cisco – Network Technician Career Path (2026)</p>
-    </div>
-    <div class="col-md-6 text-center mt-4">
-      <img src="images/badge_aws.png" alt="AWS Cloud Computing 101" class="img-fluid" width="250">
-      <p>AWS – Cloud Computing 101 (2026)</p>
+<!-- Menu de navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Portfolio</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#diplomes">Diplômes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projets</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
     </div>
   </div>
-  <p class="mt-3">Voir tous mes badges sur <a href="https://www.credly.com/users/sombsi-alberto-yvan" target="_blank">Credly</a>.</p>
-  <button class="btn btn-primary btn-next" onclick="showPage('projects')">Suivant → Projet de Licence</button>
-</div>
+</nav>
 
-<!-- Page 4 : Projet -->
-<div id="projects" class="page">
-  <h2>Projet de Licence : Mise en place d’une infrastructure cloud privée virtualisée, automatisée et supervisée</h2>
+<!-- À propos -->
+<section id="about" class="section text-center">
+  <h2>À propos</h2>
+  <p>Bonjour, moi c'est <strong>Alberto Sombsi</strong>.</p>
+  <p>Passionné par les infrastructures informatiques et la sécurité, j'évolue en tant qu'Administrateur Réseaux et Systèmes. 
+  Mon parcours universitaire m'a permis de consolider de solides bases techniques, d'abord avec un DUT en Génie Réseaux et Télécommunications à l'IUT de Douala, puis à travers une Licence Professionnelle en Administration des Réseaux Multimédia obtenue à l'IUT de Colmar (Université de Haute-Alsace).</p>
+  <p>Curieux de nature et toujours en quête de perfectionnement, j'aime concevoir, virtualiser et sécuriser des environnements d'entreprise (Routing/Switching, Firewalls, Services Windows/Linux, Stockage et Monitoring). 
+  Au-delà de mes diplômes académiques, je valide continuellement mes compétences sur le terrain et à travers des cursus certifiants, comme le parcours Network Technician Career Path de la Cisco Networking Academy.</p>
+  <p>Mon objectif ? Relever des défis techniques stimulants, automatiser les processus d'infrastructure et garantir la haute disponibilité ainsi que la sécurité des systèmes d'information.</p>
+  <a href="images/CV_SOMBSI.pdf" class="btn btn-cv mt-3" target="_blank">📄 Télécharger mon CV</a>
+</section>
+
+<!-- Diplômes -->
+<section id="diplomes" class="section text-center">
+  <h2>Diplômes</h2>
+  <div>
+    <img src="images/iut logo.png" alt="Logo IUT Douala" class="logo">
+    <p><strong>DUT en Réseaux et Télécommunications</strong><br>IUT de Douala (Cameroun)<br>2022 - 2024</p>
+  </div>
+  <div class="mt-4">
+    <img src="images/colmar logo.png" alt="Logo IUT Colmar" class="logo">
+    <p><strong>Licence Professionnelle en Administration des Réseaux Multimédia</strong><br>IUT de Colmar (France)<br>2024 - 2025</p>
+  </div>
+</section>
+
+<!-- Certifications -->
+<section id="certifications" class="section">
+  <h2 class="text-center">Certifications</h2>
+  <div class="row text-center">
+    <div class="col-md-3">
+      <img src="images/introduction cybersecurite.PNG" alt="Cisco Introduction à la cybersécurité" class="img-fluid">
+      <p>Cisco – Introduction à la cybersécurité</p>
+    </div>
+    <div class="col-md-3">
+      <img src="images/reseau de base.PNG" alt="Cisco Notions de base sur les réseaux" class="img-fluid">
+      <p>Cisco – Notions de base sur les réseaux</p>
+    </div>
+    <div class="col-md-3">
+      <img src="images/network technician.PNG" alt="Cisco Network Technician Career Path" class="img-fluid">
+      <p>Cisco – Network Technician Career Path</p>
+    </div>
+    <div class="col-md-3">
+      <img src="images/badge_aws.png" alt="AWS Cloud Computing 101" class="img-fluid">
+      <p>AWS – Cloud Computing 101</p>
+    </div>
+  </div>
+  <p class="mt-3 text-center">Voir tous mes badges sur <a href="https://www.credly.com/users/sombsi-alberto-yvan" target="_blank">Credly</a>.</p>
+</section>
+
+<!-- Projets -->
+<section id="projects" class="section">
+  <h2 class="text-center">Projet de Licence : Cloud Privé Virtualisé</h2>
   <p><strong>Contexte :</strong> Réalisé chez OCTAL GROUP pour centraliser et sécuriser les services informatiques.</p>
   <p><strong>Objectif :</strong> Déployer un cluster Proxmox, sécuriser avec pfSense, automatiser avec Ansible, superviser avec Grafana/Prometheus.</p>
   <p><strong>Attentes :</strong> Optimisation des ressources, sécurité renforcée, automatisation des déploiements et supervision proactive.</p>
 
-  <h5>Architecture du projet</h5>
-  <img src="images/architecture_proxmox.PNG" class="img-fluid" width="600">
-  <p>Schéma global de l’infrastructure : Proxmox VE, pfSense, Windows Server, Grafana, Prometheus et VLANs.</p>
+  <div class="card p-3">
+    <h5>Architecture du projet</h5>
+    <img src="images/architecture_proxmox.PNG" class="img-fluid">
+    <p>Schéma global de l’infrastructure : Proxmox VE, pfSense, Windows Server, Grafana, Prometheus et VLANs.</p>
+  </div>
 
-  <h5>Interface Proxmox</h5>
-  <img src="images/proxmox_dashboard.PNG" class="img-fluid" width="600">
-  <p>Vue du cluster Proxmox avec les machines virtuelles déployées.</p>
+  <div class="card p-3">
+    <h5>Interface Proxmox</h5>
+    <img src="images/proxmox_dashboard.PNG" class="img-fluid">
+    <p>Vue du cluster Proxmox avec les machines virtuelles déployées.</p>
+  </div>
 
-  <h5>Sécurité réseau avec pfSense</h5>
-  <img src="images/pfsense_rules.PNG" class="img-fluid" width="600">
-  <p>Configuration des règles de filtrage VLAN et du NAT pour sécuriser les flux réseau.</p>
+  <div class="card p-3">
+    <h5>Sécurité réseau avec pfSense</h5>
+    <img src="images/pfsense_rules.PNG" class="img-fluid">
+    <p>Configuration des règles de filtrage VLAN et du NAT pour sécuriser les flux réseau.</p>
+  </div>
 
-  <h5>Automatisation avec Ansible</h5>
-  <img src="images/ansible playbook.PNG" class="img-fluid" width="600">
-  <p>Exemple de playbook Ansible utilisé pour automatiser le déploiement des services.</p>
+  <div class="card p-3">
+    <h5>Automatisation avec Ansible</h5>
+    <img src="images/ansible playbook.PNG" class="img-fluid">
+    <p>Exemple de playbook Ansible utilisé pour automatiser le déploiement des services.</p>
+  </div>
 
-  <h5>Supervision Grafana / Prometheus</h5>
-  <img src="images/grafana_dashboard.PNG" class="img-fluid" width="600">
-  <p>Tableau de bord Grafana affichant les métriques du cluster et les alertes configurées via Prometheus.</p>
+  <div class="card p-3">
+    <h5>Supervision Grafana / Prometheus</h5>
+    <img src="images/grafana_dashboard.PNG" class="img-fluid">
+    <p>Tableau de bord Grafana affichant les métriques du cluster et les alertes configurées via Prometheus.</p>
+  </div>
 
-  <h5>Gestion des utilisateurs (AD/DHCP)</h5>
-  <img src="images/windows_ser_ad.PNG" class="img-fluid" width="600">
-  <p>Configuration Active Directory et DHCP pour centraliser la gestion des utilisateurs et des adresses IP.</p>
-
-  <h5>Résultat final</h5>
-  <img src="images/final_result.PNG" class="img-fluid" width="600">
-  <p>Infrastructure fonctionnelle : VLANs opérationnels, supervision active et services déployés avec succès.</p>
-
-  <button class="btn btn-primary btn-next" onclick="showPage('contact')">Suivant → Contact</button>
-</div>
-
-<!-- Page 5 : Contact -->
-<div id="contact" class="page">
-  <h2>Contact</h2>
-  <p>Email : <a href="mailto:albertosombsi@gmail.com">albertosombsi@gmail.com</a></p>
-  <p>GitHub : <a href="https://github.com/SOMBSI" target="_blank">github.com/SOMBSI</a></p>
-  <p>Credly : <a href="https://www.credly.com/users/sombsi-alberto-yvan" target="_blank">Mes badges</a></p>
-</div>
-
-<footer>
-  <p>&copy; 2026 - Portfolio Alberto Yvan SOMBSI</p>
-</footer>
-
-<script>
-  function showPage(pageId) {
-    document.querySelectorAll('.page').forEach(div => div.classList.remove('active-page'));
-    document.getElementById(pageId).classList.add('active-page');
-    window.scrollTo(0,0); // remonter en haut de la page
-  }
-</script>
-
-</body>
-</html>
+  <div class="card p-3">
+    <h5>Gestion des
