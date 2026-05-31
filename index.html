@@ -1,135 +1,620 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Alberto Sombsi</title>
-  <style>
-    body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(to right, #ffffff, #007BFF); color: #000; }
-    .page { display: none; padding: 60px 20px; max-width: 900px; margin: auto; }
-    .active-page { display: block; }
-    header { text-align: center; padding: 40px; }
-    header img { border-radius: 50%; margin-bottom: 20px; border: 4px solid #007BFF; }
-    header h1 { font-size: 2.5rem; font-weight: bold; color: #007BFF; }
-    h2 { color: #007BFF; margin-bottom: 20px; }
-    .btn-nav { margin: 20px 10px 0 10px; background-color: #007BFF; color: #fff; font-weight: bold; border: none; padding: 12px 24px; border-radius: 30px; transition: transform 0.3s ease; }
-    .btn-nav:hover { transform: scale(1.1); background-color: #0056b3; }
-    .card { background-color: #f8f9fa; border: none; margin-bottom: 30px; padding: 20px; border-radius: 10px; }
-    .card img { border-radius: 8px; }
-    footer { background: #007BFF; color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOMBSI Alberto Yvan - Portfolio Administration Réseaux & Cloud</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #0dcaf0;
+            --dark-color: #1e293b;
+            --light-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header / Navigation */
+        header {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--secondary-color);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h2 {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+
+        .btn-dark {
+            background-color: #334155;
+            color: white;
+            border: 1px solid #475569;
+        }
+
+        .btn-dark:hover {
+            background-color: #475569;
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Academic Logos Block */
+        .academic-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 3rem;
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .academic-logos img {
+            height: 65px;
+            object-fit: contain;
+            filter: grayscale(20%);
+            transition: var(--transition);
+        }
+
+        .academic-logos img:hover {
+            filter: grayscale(0%);
+        }
+
+        /* Project Section Styling */
+        .project-meta {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+        }
+
+        .project-meta h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-img-container {
+            width: 100%;
+            height: 220px;
+            background-color: #f1f5f9;
+            overflow: hidden;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .project-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-img-container img {
+            transform: scale(1.03);
+        }
+
+        .project-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-body h4 {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .project-body p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: #f1f5f9;
+            color: #475569;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Certifications Section */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cert-img-container {
+            width: 100%;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .cert-img-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .cert-card h4 {
+            font-size: 1.1rem;
+            color: var(--dark-color);
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: #94a3b8;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+            border-top: 1px solid #334155;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .footer-socials a:hover {
+            color: white;
+            transition: var(--transition);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            .academic-logos {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-  <img src="images/ma photo.PNG" alt="Photo Alberto Sombsi" width="180">
-  <h1>Alberto Yvan SOMBSI</h1>
-  <p>Administrateur Réseaux & Systèmes | Cloud & Sécurité</p>
-</header>
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">SOMBSI ALBERTO</div>
+            <nav>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#projet">Projet de Soutenance</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<!-- Page 1 : À propos -->
-<div id="about" class="page active-page">
-  <h2>À propos</h2>
-  <p>Bonjour, moi c'est <strong>Alberto Sombsi</strong>.</p>
-  <p>Passionné par les infrastructures informatiques et la sécurité, j'évolue en tant qu'Administrateur Réseaux et Systèmes. 
-  Mon parcours universitaire m'a permis de consolider de solides bases techniques, d'abord avec un DUT en Génie Réseaux et Télécommunications à l'IUT de Douala, puis à travers une Licence Professionnelle en Administration des Réseaux Multimédia obtenue à l'IUT de Colmar (Université de Haute-Alsace).</p>
-  <p>Curieux de nature et toujours en quête de perfectionnement, j'aime concevoir, virtualiser et sécuriser des environnements d'entreprise (Routing/Switching, Firewalls, Services Windows/Linux, Stockage et Monitoring). 
-  Mon objectif ? Relever des défis techniques stimulants, automatiser les processus d'infrastructure et garantir la haute disponibilité ainsi que la sécurité des systèmes d'information.</p>
-  <button class="btn-nav" onclick="showPage('diplomes')">Suivant → Diplômes</button>
-</div>
+    <!-- Hero Identity Section -->
+    <section class="hero" id="accueil">
+        <div class="hero-container">
+            <img src="images/ma photo.PNG" alt="SOMBSI Alberto Yvan" class="profile-img">
+            <h1>Alberto Yvan Sombsi</h1>
+            <h2>Administrateur Systèmes, Réseaux & Infrastructure Cloud Privée</h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i> <a href="mailto:albertosombsi@gmail.com">albertosombsi@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i> <span>SOMBSI</span>
+                </div>
+            </div>
 
-<!-- Page 2 : Diplômes -->
-<div id="diplomes" class="page">
-  <h2>Diplômes</h2>
-  <div>
-    <img src="images/iut logo.png" alt="Logo IUT Douala" width="120">
-    <p><strong>DUT en Réseaux et Télécommunications</strong><br>IUT de Douala (Cameroun)<br>2022 - 2024</p>
-  </div>
-  <div class="mt-4">
-    <img src="images/colmar logo.png" alt="Logo IUT Colmar" width="120">
-    <p><strong>Licence Professionnelle en Administration des Réseaux Multimédia</strong><br>IUT de Colmar (France)<br>2024 - 2025</p>
-  </div>
-  <button class="btn-nav" onclick="showPage('about')">← Retour</button>
-  <button class="btn-nav" onclick="showPage('certifications')">Suivant → Certifications</button>
-</div>
+            <div class="btn-group">
+                <a href="https://www.credly.com/users/sombsi/alberto-yvan" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-award"></i> Profil Credly
+                </a>
+                <a href="https://github.com/SOMBSI" target="_blank" class="btn btn-dark">
+                    <i class="fab fa-github"></i> GitHub Code
+                </a>
+            </div>
+        </div>
+    </section>
 
-<!-- Page 3 : Certifications -->
-<div id="certifications" class="page">
-  <h2>Certifications</h2>
-  <div>
-    <img src="images/introduction cybersecurite.PNG" alt="Cisco Introduction à la cybersécurité" width="200">
-    <p>Cisco – Introduction à la cybersécurité</p>
-  </div>
-  <div>
-    <img src="images/reseau de base.PNG" alt="Cisco Notions de base sur les réseaux" width="200">
-    <p>Cisco – Notions de base sur les réseaux</p>
-  </div>
-  <div>
-    <img src="images/network technician.PNG" alt="Cisco Network Technician Career Path" width="200">
-    <p>Cisco – Network Technician Career Path</p>
-  </div>
-  <div>
-    <img src="images/badge_aws.png" alt="AWS Cloud Computing 101" width="200">
-    <p>AWS – Cloud Computing 101</p>
-  </div>
-  <p>Voir tous mes badges sur <a href="https://www.credly.com/users/sombsi-alberto-yvan" target="_blank">Credly</a>.</p>
-  <button class="btn-nav" onclick="showPage('diplomes')">← Retour</button>
-  <button class="btn-nav" onclick="showPage('competences')">Suivant → Compétences</button>
-</div>
+    <!-- Main Content Container -->
+    <div class="container">
 
-<!-- Page 4 : Compétences -->
-<div id="competences" class="page">
-  <h2>Compétences</h2>
-  <ul>
-    <li>Virtualisation : Proxmox VE, VMware</li>
-    <li>Sécurité : pfSense, Firewalls, VLANs</li>
-    <li>Administration systèmes : Windows Server, Active Directory, Linux</li>
-    <li>Automatisation : Ansible, scripts Bash</li>
-    <li>Supervision : Grafana, Prometheus</li>
-    <li>Réseaux : Routing, Switching, TCP/IP</li>
-    <li>Cloud : AWS (Cloud Computing 101)</li>
-  </ul>
-  <button class="btn-nav" onclick="showPage('certifications')">← Retour</button>
-  <button class="btn-nav" onclick="showPage('projects')">Suivant → Projet de Licence</button>
-</div>
+        <!-- Institutions Partenaires Logos -->
+        <div class="academic-logos">
+            <img src="images/iut logo.png" alt="IUT de Douala">
+            <img src="images/colmar logo.png" alt="IUT de Colmar, Université de Haute-Alsace">
+        </div>
 
-<!-- Page 5 : Projet -->
-<div id="projects" class="page">
-  <h2>Projet de Licence : Cloud Privé Virtualisé</h2>
-  <p><strong>Contexte :</strong> Réalisé chez OCTAL GROUP pour centraliser et sécuriser les services informatiques.</p>
-  <p><strong>Objectif :</strong> Déployer un cluster Proxmox, sécuriser avec pfSense, automatiser avec Ansible, superviser avec Grafana/Prometheus.</p>
-  <p><strong>Attentes :</strong> Optimisation des ressources, sécurité renforcée, automatisation des déploiements et supervision proactive.</p>
+        <!-- Project Definition and Technical Report Section -->
+        <section id="projet">
+            <h2 class="section-title">Projet de Fin de Cycle / Stage de Soutenance</h2>
+            
+            <div class="project-meta">
+                <h3>Thème : Mise en place d’une infrastructure cloud privée virtualisée, automatisée et supervisée sous Proxmox pour une gestion centralisée et sécurisée des services</h3>
+                <p><strong>Organisme d'accueil :</strong> OCTAL GROUP (Unité sécurité réseau et cloud)</p>
+                <p><strong>Contexte & Problématique :</strong> Modernisation d'une infrastructure physique classique vers un environnement virtualisé agile. Solution apportée via la segmentation réseau sécurisée (VLANs/pfSense), l'automatisation rigoureuse des déploiements applicatifs (Ansible Infrastructure as Code), la centralisation des identités (Active Directory) et la mise en œuvre d'une supervision temps réel proactive (Prometheus/Grafana).</p>
+            </div>
 
-  <div class="card">
-    <h5>Architecture du projet</h5>
-    <img src="images/architecture_proxmox.PNG" class="img-fluid">
-    <p>Schéma global de l’infrastructure.</p>
-  </div>
+            <h3 style="margin-bottom: 1.5rem; color: var(--dark-color);"><i class="fas fa-cubes"></i> Architecture et Réalisations Techniques</h3>
+            
+            <div class="project-grid">
+                
+                <!-- Card 1: Topologie Générale -->
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <img src="images/architecture_proxmox.PNG" alt="Architecture Globale du Projet">
+                    </div>
+                    <div class="project-body">
+                        <h4>Architecture Globale & Topologie</h4>
+                        <p>Modélisation complète de l'infrastructure cloud hébergée sur l'hyperviseur Proxmox, intégrant le cœur de routage/filtrage pfSense et l'ensemble des segments de production isolés par VLANs.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Proxmox VE</span>
+                            <span class="tag">VLAN</span>
+                            <span class="tag">pfSense</span>
+                        </div>
+                    </div>
+                </div>
 
-  <div class="card">
-    <h5>Interface Proxmox</h5>
-    <img src="images/proxmox_dashboard.PNG" class="img-fluid">
-    <p>Vue du cluster Proxmox avec les VMs.</p>
-  </div>
+                <!-- Card 2: Hyperviseur Proxmox -->
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <img src="images/proxmox_dashboard.PNG" alt="Dashboard Proxmox VE">
+                    </div>
+                    <div class="project-body">
+                        <h4>Gestion du Cluster Proxmox VE</h4>
+                        <p>Console d'administration centrale regroupant les machines virtuelles (VM) et les allocations de ressources matérielles (CPU, RAM, Stockage NFS partagé) pour les différents environnements serveurs.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Hyperviseur</span>
+                            <span class="tag">KVM</span>
+                            <span class="tag">NFS Storage</span>
+                        </div>
+                    </div>
+                </div>
 
-  <div class="card">
-    <h5>Sécurité réseau avec pfSense</h5>
-    <img src="images/pfsense_rules.PNG" class="img-fluid">
-    <p>Configuration des règles VLAN et NAT.</p>
-  </div>
+                <!-- Card 3: Sécurité pfSense -->
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <img src="images/pfsense_rules.PNG" alt="Règles de filtrage pfSense">
+                    </div>
+                    <div class="project-body">
+                        <h4>Sécurisation & Politiques de Filtrage</h4>
+                        <p>Configuration fine des pare-feux applicatifs sur pfSense. Isolation et routage inter-VLAN (IT, Users, et Services) avec règles strictes de contrôle de flux et translation NAT pour l'accès WAN extérieur.</p>
+                        <div class="tech-tags">
+                            <span class="tag">pfSense</span>
+                            <span class="tag">Firewall Rules</span>
+                            <span class="tag">NAT</span>
+                        </div>
+                    </div>
+                </div>
 
-  <div class="card">
-    <h5>Automatisation avec Ansible</h5>
-    <img src="images/ansible playbook.PNG" class="img-fluid">
-    <p>Playbook Ansible pour automatiser les services.</p>
-  </div>
+                <!-- Card 4: Active Directory -->
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <img src="images/windows_ser_ad.PNG" alt="Windows Server Active Directory">
+                    </div>
+                    <div class="project-body">
+                        <h4>Services d'Annuaire & Réseau Microsoft</h4>
+                        <p>Déploiement centralisé de Windows Server gérant les rôles Active Directory (AD DS), DNS interne et l'attribution dynamique d'adresses réseau via DHCP Relay.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Active Directory</span>
+                            <span class="tag">DHCP Relay</span>
+                            <span class="tag">DNS</span>
+                        </div>
+                    </div>
+                </div>
 
-  <div class="card">
-    <h5>Supervision Grafana / Prometheus</h5>
-    <img src="images/grafana_dashboard.PNG" class="img-fluid">
-    <p>Dashboard Grafana avec métriques et alertes.</p>
-  </div>
+                <!-- Card 5: Automatisation Ansible -->
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <img src="images/ansible playbook.PNG" alt="Automatisation Ansible">
+                    </div>
+                    <div class="project-body">
+                        <h4>Infrastructure as Code (IaC)</h4>
+                        <p>Automatisation complète du déploiement des services applicatifs (serveur Web Apache/PHP, serveur de messagerie Postfix/Dovecot relié à l'AD via LDAP, et partages NFS) via des Playbooks YAML.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Ansible</span>
+                            <span class="tag">YAML</span>
+                            <span class="tag">Automation</span>
+                        </div>
+                    </div>
+                </div>
 
-  <div class="card">
-    <h5>Gestion des utilisateurs (AD/DHCP)</h5>
-    <img src="images/windows_ser_ad.PNG"
+                <!-- Card 6: Supervision Métriques -->
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <img src="images/grafana_dashboard.PNG" alt="Supervision Grafana Dashboard">
+                    </div>
+                    <div class="project-body">
+                        <h4>Supervision Métriques Avancée</h4>
+                        <p>Collecte d'indicateurs de performance en temps réel à l'aide de Prometheus et affichage dynamique des tableaux de bord Grafana pour la gestion prédictive des incidents (seuils de charge CPU, RAM, disques).</p>
+                        <div class="tech-tags">
+                            <span class="tag">Prometheus</span>
+                            <span class="tag">Grafana</span>
+                            <span class="tag">Monitoring</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7: Validation finale -->
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <img src="images/final_result.PNG" alt="Résultat final">
+                    </div>
+                    <div class="project-body">
+                        <h4>Tests d'Intégration & Résultat Final</h4>
+                        <p>Validation opérationnelle de l'ensemble des modules du Cloud privé : tests de connectivité inter-VLAN réussis, routage internet sécurisé et disponibilité applicative globale.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Vérification</span>
+                            <span class="tag">Routage IP</span>
+                            <span class="tag">Production</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Academic Credentials and Professional Badges Section -->
+        <section id="certifications">
+            <h2 class="section-title">Certifications & Badges Professionnels</h2>
+            <div class="cert-grid">
+                
+                <!-- Badge AWS -->
+                <div class="cert-card">
+                    <div class="cert-img-container">
+                        <img src="images/badge_aws.png" alt="Badge AWS Cloud Computing 101">
+                    </div>
+                    <h4>AWS Cloud Computing 101</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;">Amazon Web Services</p>
+                </div>
+
+                <!-- Cybersecurite -->
+                <div class="cert-card">
+                    <div class="cert-img-container">
+                        <img src="images/introduction cybersecurite.PNG" alt="Introduction à la Cybersécurité">
+                    </div>
+                    <h4>Introduction à la Cybersécurité</h4>
+                </div>
+
+                <!-- Reseau de base -->
+                <div class="cert-card">
+                    <div class="cert-img-container">
+                        <img src="images/reseau de base.PNG" alt="Réseaux de Base">
+                    </div>
+                    <h4>Réseaux de Base</h4>
+                </div>
+
+                <!-- Network Technician -->
+                <div class="cert-card">
+                    <div class="cert-img-container">
+                        <img src="images/network technician.PNG" alt="Network Technician">
+                    </div>
+                    <h4>Network Technician</h4>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer Content -->
+    <footer>
+        <p>&copy; 2026 Alberto Yvan Sombsi. Tous droits réservés.</p>
+        <p style="font-size: 0.85rem; color: #64748b;">Dossier d'actifs configuré : <code>images/ .gitkeep</code></p>
+        <div class="footer-socials">
+            <a href="https://github.com/SOMBSI" target="_blank" title="GitHub"><i class="fab fa-github fa-lg"></i></a>
+            <a href="https://www.credly.com/users/sombsi/alberto-yvan" target="_blank" title="Credly"><i class="fas fa-award fa-lg"></i></a>
+        </div>
+    </footer>
+
+</body>
+</html>
